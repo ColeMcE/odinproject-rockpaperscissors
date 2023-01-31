@@ -4,16 +4,15 @@ let scissors = "Scissors";
 
 function getComputerChoice() {
     let rng = Math.floor(Math.random()*3)
-    console.log(rng);
     if (rng < 1) {
-        return rock;
+        return "Rock";
     }
     else if (rng <= 1) {
-        return paper;
+        return "Paper";
     }
     else {
-        return scissors;
+        return "Scissors";
     }
 }
 
-console.log(getComputerChoice());
+// console.log(getComputerChoice()); USE THIS TO TEST COMPUTER CHOICE OUTPUT

@@ -17,7 +17,7 @@ function getComputerChoice() {
 
 let decision = (prompt("Rock, Paper, or Scissors").toLowerCase());
 
-function playerOutput (decision) {
+function playerChoice (decision) {
     if (decision === rock) {
         return rock;
     }
@@ -28,9 +28,9 @@ function playerOutput (decision) {
         return scissors;
     }
     else {
-        return "Error, could not identify player input";
+        return "Error, please pick 'rock' 'paper' or 'scissors'";
     }
 }
 
-console.log(getComputerChoice());
-console.log(playerOutput(decision));
+//console.log(getComputerChoice());
+//console.log(playerChoice(decision));

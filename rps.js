@@ -1,18 +1,36 @@
-let rock = "Rock";
-let paper = "Paper";
-let scissors = "Scissors";
+let rock = "rock";
+let paper = "paper";
+let scissors = "scissors";
 
 function getComputerChoice() {
     let rng = Math.floor(Math.random()*3)
     if (rng < 1) {
-        return "Rock";
+        return rock;
     }
     else if (rng <= 1) {
-        return "Paper";
+        return paper;
     }
     else {
-        return "Scissors";
+        return scissors;
     }
 }
 
-// console.log(getComputerChoice()); USE THIS TO TEST COMPUTER CHOICE OUTPUT
+let decision = (prompt("Rock, Paper, or Scissors").toLowerCase());
+
+function playerOutput (decision) {
+    if (decision === rock) {
+        return rock;
+    }
+    else if (decision === paper) {
+        return paper;
+    }
+    else if (decision === scissors) {
+        return scissors;
+    }
+    else {
+        return "Error, could not identify player input";
+    }
+}
+
+console.log(getComputerChoice());
+console.log(playerOutput(decision));

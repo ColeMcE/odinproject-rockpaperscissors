@@ -53,11 +53,10 @@ function playGame (playerChoice) {
         checkScissors();
     }  
     else {
-        console.log("error: could not determine players choice");
+        console.log("Hey! Rock, paper, or scissors idiot.");
     }
 
 }
-
 
 console.log("You picked: " + decision);
 console.log("The computer picked: " +  compPick + " so...");

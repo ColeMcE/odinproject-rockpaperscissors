@@ -2,6 +2,39 @@ let rock = "rock";
 let paper = "paper";
 let scissors = "scissors";
 let compPick;
+let decision;
+let playerScore = 0;
+let compScore = 0;
+
+game(); // Call to start a five round game.
+
+function game() { // Plays a game of five rounds.
+    for (let i = 0; i < 5; i++) {
+        playRound();
+     }
+     if (playerScore > compScore) {
+        console.log("Congrats! You won with a score of: " + playerScore + " points.")
+     }
+     else if (compScore > playerScore) {
+        console.log("Sorry, the computer won with a score of: " + compScore + " points.")
+     }
+     else if (compScore == playerScore) {
+        console.log("Welp, it was a tie overall with " + playerScore + " points.")
+     }
+     else {
+        console.log("error: failed to tally points total.")
+     }
+}
+
+function playRound() { // Play one round
+    getComputerChoice();
+    decision = (prompt("Rock, Paper, or Scissors").toLowerCase());
+    console.log("You picked: " + decision);
+    console.log("The computer picked: " +  compPick + " so...");
+    playGame(decision);
+    console.log("Your score: " + playerScore + " points, computer score: " + compScore + " points.")
+
+}
 
 function getComputerChoice() {
     let rng = Math.floor(Math.random()*3)
@@ -18,9 +51,6 @@ function getComputerChoice() {
         return compPick;
     }
 }
-
-getComputerChoice();
-let decision = (prompt("Rock, Paper, or Scissors").toLowerCase());
 
 function playerChoice (decision) {
     if (decision === rock) {
@@ -58,45 +88,53 @@ function playGame (playerChoice) {
 
 }
 
-console.log("You picked: " + decision);
-console.log("The computer picked: " +  compPick + " so...");
-playGame(decision);
-
 function checkRock() {
     if (compPick === rock) {
             console.log("Shame, it's a tie.");
+            playerScore++;
+            compScore++;
         }
     else if (compPick === scissors) {
-            console.log("You win!");
+            console.log("You win this round!");
+            playerScore++;
     }
     else {
-            console.log("Sorry... you lose.")
+            console.log("Sorry... you lose this one.")
+            compScore++;
     }
     
 }
 
-function checkPaper(playerChoice) {
+function checkPaper() {
     if (compPick === paper) {
             console.log("Shame, it's a tie.");
+            playerScore++;
+            compScore++;
         }
     else if (compPick === rock) {
-            console.log("You win!");
+            console.log("You win this round!");
+            playerScore++;
     }
     else {
-            console.log("Sorry... you lose.")
+            console.log("Sorry... you lose this one.")
+            compScore++;
     }
     
 }
 
-function checkScissors(playerChoice) {
+function checkScissors() {
     if (compPick === scissors) {
             console.log("Shame, it's a tie.");
+            playerScore++;
+            compScore++;
         }
     else if (compPick  === paper) {
-            console.log("You win!");
+            console.log("You win this round!");
+            playerScore++;
     }
     else {
-            console.log("Sorry... you lose.")
+            console.log("Sorry... you lose this one.")
+            compScore++;
     }
     
 }

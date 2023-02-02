@@ -36,7 +36,7 @@ function playRound() { // Play one round
 
 }
 
-function getComputerChoice() {
+function getComputerChoice() { //Generates a computer decision
     let rng = Math.floor(Math.random()*3)
     if (rng < 1) {
         compPick = rock;
@@ -52,7 +52,7 @@ function getComputerChoice() {
     }
 }
 
-function playerChoice (decision) {
+function playerChoice (decision) { //Translates user inputs
     if (decision === rock) {
         decision = rock;
         return decision;
@@ -70,7 +70,7 @@ function playerChoice (decision) {
     }
 }
 
-function playGame (playerChoice) {
+function playGame (playerChoice) { //Logic of game
     if (decision === rock){
         checkRock();
     }
@@ -88,7 +88,7 @@ function playGame (playerChoice) {
 
 }
 
-function checkRock() {
+function checkRock() { //Supplemental function for playGame
     if (compPick === rock) {
             console.log("Shame, it's a tie.");
             playerScore++;
@@ -105,7 +105,7 @@ function checkRock() {
     
 }
 
-function checkPaper() {
+function checkPaper() { //Supplemental function for playGame
     if (compPick === paper) {
             console.log("Shame, it's a tie.");
             playerScore++;
@@ -122,7 +122,7 @@ function checkPaper() {
     
 }
 
-function checkScissors() {
+function checkScissors() { //Supplemental function for playGame
     if (compPick === scissors) {
             console.log("Shame, it's a tie.");
             playerScore++;

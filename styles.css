@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+
+}
+
+h2 {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 25px;
+    
+}
+
+li {
+    display: flex;
+    align-items: center;
+    
+}
+
+
+

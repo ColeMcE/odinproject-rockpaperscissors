@@ -9,9 +9,9 @@ let compScore = 0;
 game(); // Call to start a five round game.
 
 function game() { // Plays a game of five rounds.
-    for (let i = 0; i < 5; i++) {
-        playRound();
-     }
+    //for (let i = 0; i < 5; i++) {
+        //playRound();
+     //}
      if (playerScore > compScore) {
         console.log("Congrats! You won with a score of: " + playerScore + " points.")
      }

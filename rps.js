@@ -1,40 +1,27 @@
-let rock = "rock";
-let paper = "paper";
-let scissors = "scissors";
-let compPick;
+//Declaring Variables
+let rock = document.getElementById("rockButton").value;
+let paper = document.getElementById("paperButton").value;
+let scissors = document.getElementById("scissorsButton").value;
+const playerButtons = document.querySelectorAll('.playerButtons button');
 let decision;
+let compPick;
 let playerScore = 0;
 let compScore = 0;
-
-game(); // Call to start a five round game.
-
-function game() { // Plays a game of five rounds.
-    //for (let i = 0; i < 5; i++) {
-        //playRound();
-     //}
-     if (playerScore > compScore) {
-        console.log("Congrats! You won with a score of: " + playerScore + " points.")
-     }
-     else if (compScore > playerScore) {
-        console.log("Sorry, the computer won with a score of: " + compScore + " points.")
-     }
-     else if (compScore == playerScore) {
-        console.log("Welp, it was a tie overall with " + playerScore + " points.")
-     }
-     else {
-        console.log("error: failed to tally points total.")
-     }
-}
-
-function playRound() { // Play one round
+//
+//Adding event listener to each function, 
+playerButtons.forEach(playerButton => {
+    playerButton.addEventListener("click" , processClick);
+});
+function processClick(){
     getComputerChoice();
-    decision = (prompt("Rock, Paper, or Scissors").toLowerCase());
+    decision = this.value;
+    playGame(decision);
     console.log("You picked: " + decision);
     console.log("The computer picked: " +  compPick + " so...");
-    playGame(decision);
     console.log("Your score: " + playerScore + " points, computer score: " + compScore + " points.")
-
+    
 }
+
 
 function getComputerChoice() { //Generates a computer decision
     let rng = Math.floor(Math.random()*3)
@@ -52,34 +39,16 @@ function getComputerChoice() { //Generates a computer decision
     }
 }
 
-function playerChoice (decision) { //Translates user inputs
-    if (decision === rock) {
-        decision = rock;
-        return decision;
-    }
-    else if (decision === paper) {
-        decision = paper;
-        return decision;
-    }
-    else if (decision === scissors) {
-        decision = scissors;
-        return decision;
-    }
-    else {
-        return "Error, please pick 'rock' 'paper' or 'scissors'";
-    }
-}
-
-function playGame (playerChoice) { //Logic of game
-    if (decision === rock){
+function playGame (decision) { //Logic of game
+    if (decision == rock){
         checkRock();
     }
         
-    else if (decision === paper) {
+    else if (decision == paper) {
         checkPaper();
     }
         
-    else if (decision === scissors) {
+    else if (decision == scissors) {
         checkScissors();
     }  
     else {

@@ -7,23 +7,25 @@ let decision;
 let compPick;
 let playerScore = 0;
 let compScore = 0;
-//
+
 //Adding event listener to each function, 
 playerButtons.forEach(playerButton => {
     playerButton.addEventListener("click" , processClick);
 });
+
+//Executes one round of the game on a button click
 function processClick(){
     getComputerChoice();
     decision = this.value;
-    playGame(decision);
+    playRound(decision);
     console.log("You picked: " + decision);
     console.log("The computer picked: " +  compPick + " so...");
     console.log("Your score: " + playerScore + " points, computer score: " + compScore + " points.")
     
 }
 
-
-function getComputerChoice() { //Generates a computer decision
+//Generates a computer decision
+function getComputerChoice() { 
     let rng = Math.floor(Math.random()*3)
     if (rng < 1) {
         compPick = rock;
@@ -39,7 +41,8 @@ function getComputerChoice() { //Generates a computer decision
     }
 }
 
-function playGame (decision) { //Logic of game
+//Logic of one round of the game
+function playRound (decision) { 
     if (decision == rock){
         checkRock();
     }
@@ -57,6 +60,7 @@ function playGame (decision) { //Logic of game
 
 }
 
+//Functions to compare the user and computer values
 function checkRock() { //Supplemental function for playGame
     if (compPick === rock) {
             console.log("Shame, it's a tie.");
@@ -73,7 +77,6 @@ function checkRock() { //Supplemental function for playGame
     }
     
 }
-
 function checkPaper() { //Supplemental function for playGame
     if (compPick === paper) {
             console.log("Shame, it's a tie.");
@@ -90,7 +93,6 @@ function checkPaper() { //Supplemental function for playGame
     }
     
 }
-
 function checkScissors() { //Supplemental function for playGame
     if (compPick === scissors) {
             console.log("Shame, it's a tie.");

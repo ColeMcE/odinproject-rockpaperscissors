@@ -8,9 +8,9 @@ let compPick;
 let playerScore = 0;
 let compScore = 0;
 let clickCount = 0;
+const resetButton = document.getElementById("reset");
 
 //Reset button
-const resetButton = document.getElementById("reset");
 resetButton.addEventListener("click", ()=> {
     playerScore = 0;
     compScore = 0;
@@ -147,7 +147,3 @@ function checkScissors() { //Supplemental function for playGame
     }
     
 }
-
-
-//console.log(getComputerChoice());
-//console.log(playerChoice(decision));

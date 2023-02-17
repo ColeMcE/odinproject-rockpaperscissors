@@ -3,7 +3,12 @@ h1 {
 
 }
 
-h2 {
+div.reset {
+    display: flex;
+    justify-content: center;
+}
+
+.resultOutput {
     text-align: center;
 }
 
@@ -12,15 +17,13 @@ ul {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 25px;
+    padding: 30px;
     
 }
 
-li {
+head {
     display: flex;
-    align-items: center;
-    
+    justify-content: center;
 }
-
 
 

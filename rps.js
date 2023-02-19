@@ -10,6 +10,15 @@ let compScore = 0;
 let clickCount = 0;
 const resetButton = document.getElementById("reset");
 
+//Creating DOM Elements 
+let messageContainer = document.getElementById('resultOutput');
+let winMessage = document.createElement('p');
+let loseMessage = document.createElement('p');
+let tieMessage = document.createElement('p');
+let yourDecisionMessage = document.createElement('p');
+let compDecisionMessage = document.createElement('p');
+let currentScoreMessage = document.createElement('p');
+
 //Reset button
 resetButton.addEventListener("click", ()=> {
     playerScore = 0;
@@ -18,6 +27,7 @@ resetButton.addEventListener("click", ()=> {
     document.getElementById("rockButton").disabled = false;
     document.getElementById("paperButton").disabled = false;
     document.getElementById("scissorsButton").disabled = false;
+    messageContainer.innerHTML = "";
 });
 
 //Adding event listener to each button, 
@@ -32,9 +42,12 @@ function processClick(){
         getComputerChoice();
         decision = this.value;
         playRound(decision);
-        console.log("You picked: " + decision);
-        console.log("The computer picked: " +  compPick + " so...");
-        console.log("Your score: " + playerScore + " points, computer score: " + compScore + " points.")
+        yourDecisionMessage.textContent = String("You picked: " + decision);
+        messageContainer.append(yourDecisionMessage);
+        compDecisionMessage.textContent = String("The computer picked: " +  compPick + " so...");
+        messageContainer.append(compDecisionMessage);
+        currentScoreMessage.textContent = String("Your score: " + playerScore + " points, computer score: " + compScore + " points.")
+        messageContainer.append(currentScoreMessage);
         clickCount++;
         //After five clicks tallys total and disables the buttons
         if (clickCount == 5){
@@ -49,16 +62,23 @@ function processClick(){
 //Output of results
 function tallyTotal() {
     if (playerScore > compScore) {
-        console.log("Congrats! You won with a score of: " + playerScore + " points.")
+        console.log("Congrats! You won with a score of: " + playerScore + " points.");
+        winMessage.textContent = String("Congrats! You won with a score of: " + playerScore + " points.");
+        messageContainer.append(winMessage);
+        
      }
      else if (compScore > playerScore) {
-        console.log("Sorry, the computer won with a score of: " + compScore + " points.")
+        console.log("Sorry, the computer won with a score of: " + compScore + " points.");
+        loseMessage.textContent = String("Sorry, the computer won with a score of: " + compScore + " points.");
+        messageContainer.append(loseMessage);
      }
      else if (compScore == playerScore) {
-        console.log("Welp, it was a tie overall with " + playerScore + " points.")
+        console.log("Welp, it was a tie overall with " + playerScore + " points.");
+        tieMessage.textContent = String("Welp, it was a tie overall with " + playerScore + " points.");
+        messageContainer.append(tieMessage);
      }
      else {
-        console.log("error: failed to tally points total.")
+        console.log("error: failed to tally points total.");
      }
 }
 
@@ -93,7 +113,7 @@ function playRound (decision) {
         checkScissors();
     }  
     else {
-        console.log("Hey! Rock, paper, or scissors idiot.");
+        console.log("Hey! Rock, paper, or scissors idiot.");//This option should no longer be necessary with GUI
     }
 
 }
